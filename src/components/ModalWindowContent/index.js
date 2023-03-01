@@ -1,0 +1,1 @@
+export { ModalWindowContent } from './ModalWindowContent';

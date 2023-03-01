@@ -32,12 +32,28 @@ export const AddTaskForm = ({ onSubmit }) => {
   const reset = () => {
     setTitle('');
     setDescription('');
+    setTitleIsEmpty(false);
+    setDescriptionIsEmpty(false);
   };
 
   const HandleSubmit = event => {
     event.preventDefault();
     const success = onSubmit({ title, description });
     if (success) reset();
+  };
+
+  const blurHandler = event => {
+    const { name } = event.currentTarget;
+    switch (name) {
+      case 'title':
+        setTitleIsEmpty(true);
+        break;
+      case 'description':
+        setDescriptionIsEmpty(true);
+        break;
+      default:
+        return console.log('Unknown field type');
+    }
   };
 
   return (
@@ -51,11 +67,11 @@ export const AddTaskForm = ({ onSubmit }) => {
             placeholder="Enter title"
             value={title}
             onChange={onChange}
-            title="This field is empty"
+            onBlur={event => blurHandler(event)}
             required
           />
         </Label>
-        {titleIsEmpty && <Error>Ошибка</Error>}
+        {!title && titleIsEmpty && <Error>This field is empty</Error>}
       </FieldWrapper>
       <FieldWrapper>
         <Label>
@@ -66,11 +82,13 @@ export const AddTaskForm = ({ onSubmit }) => {
             placeholder="Enter description"
             value={description}
             onChange={onChange}
-            title="This field is empty"
+            onBlur={event => blurHandler(event)}
             required
           />
         </Label>
-        {descriptionIsEmpty && <Error>Ошибка</Error>}
+        {!description && descriptionIsEmpty && (
+          <Error>This field is empty</Error>
+        )}
       </FieldWrapper>
       <Button type="submit">Create</Button>
     </StyledForm>

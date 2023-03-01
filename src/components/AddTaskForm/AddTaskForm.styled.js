@@ -17,6 +17,7 @@ export const StyledField = styled.input`
 `;
 
 export const Error = styled.span`
+  position: absolute;
   font-size: 12px;
   color: red;
 `;
