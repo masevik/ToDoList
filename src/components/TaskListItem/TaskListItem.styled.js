@@ -2,24 +2,29 @@ import styled from 'styled-components';
 
 export const Item = styled.li`
   display: flex;
+  max-height: 50px;
+  flex-wrap: nowrap;
   align-items: center;
   padding-top: 5px;
   background-color: #86c1d5;
+  overflow: hidden;
 
   :last-child {
     padding-bottom: 5px;
   }
 
-  span:first-child {
+  p:first-child {
     width: 40px;
     text-align: center;
   }
 
-  span:nth-child(2) {
+  p:nth-child(2) {
     width: 190px;
   }
 
-  span:nth-child(3) {
+  p:nth-child(3) {
+    max-height: 40px;
+    overflow: hidden;
     width: 380px;
   }
 

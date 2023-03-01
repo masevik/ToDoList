@@ -38,6 +38,15 @@ export const AddTaskForm = ({ onSubmit }) => {
 
   const HandleSubmit = event => {
     event.preventDefault();
+    if (!title) {
+      setTitleIsEmpty(true);
+      return;
+    }
+    if (!description) {
+      setDescriptionIsEmpty(true);
+      return;
+    }
+
     const success = onSubmit({ title, description });
     if (success) reset();
   };
@@ -68,7 +77,6 @@ export const AddTaskForm = ({ onSubmit }) => {
             value={title}
             onChange={onChange}
             onBlur={event => blurHandler(event)}
-            required
           />
         </Label>
         {!title && titleIsEmpty && <Error>This field is empty</Error>}
@@ -83,7 +91,6 @@ export const AddTaskForm = ({ onSubmit }) => {
             value={description}
             onChange={onChange}
             onBlur={event => blurHandler(event)}
-            required
           />
         </Label>
         {!description && descriptionIsEmpty && (

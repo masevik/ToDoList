@@ -12,10 +12,10 @@ export const TaskListItem = ({ task, onDeleteTask, onChange }) => {
   };
 
   return (
-    <Item onClick={toggleModal}>
-      <span>{id}</span>
-      <span>{title}</span>
-      <span>{description}</span>
+    <Item>
+      <p onClick={toggleModal}>{id}</p>
+      <p onClick={toggleModal}>{title}</p>
+      <p onClick={toggleModal}>{description}</p>
       <input
         type="checkbox"
         checked={status}
@@ -34,7 +34,11 @@ export const TaskListItem = ({ task, onDeleteTask, onChange }) => {
       </button>
       {isModalOpen && (
         <Modal onToggleModal={toggleModal}>
-          <ModalWindowContent data={task} />
+          <ModalWindowContent
+            data={task}
+            onToggleModal={toggleModal}
+            onChange={onChange}
+          />
         </Modal>
       )}
     </Item>
