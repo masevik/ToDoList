@@ -30,6 +30,8 @@ export const FieldWrapper = styled.div`
 
 export const Button = styled.button`
   margin-top: 23.4px;
-  width: 150px;
+  width: 100px;
   height: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 `;
