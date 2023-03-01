@@ -5,7 +5,8 @@ export const ListHeader = styled.div`
   align-items: center;
   text-align: center;
   padding: 10px 0;
-  background-color: #86c1d5;
+  margin-bottom: 5px;
+  background-color: #5fafca;
   font-size: 18px;
   font-weight: 500;
 
@@ -18,7 +19,7 @@ export const ListHeader = styled.div`
   }
 
   span:nth-child(3) {
-    width: 400px;
+    width: 380px;
   }
 
   span:nth-child(4) {
@@ -33,8 +34,12 @@ export const ListHeader = styled.div`
 export const Item = styled.li`
   display: flex;
   align-items: center;
-  padding-bottom: 5px;
+  padding-top: 5px;
   background-color: #86c1d5;
+
+  :last-child {
+    padding-bottom: 5px;
+  }
 
   span:first-child {
     width: 40px;
@@ -46,17 +51,22 @@ export const Item = styled.li`
   }
 
   span:nth-child(3) {
-    width: 400px;
+    width: 380px;
   }
 
   input {
     width: 65px;
     text-align: center;
+    margin-right: 10px;
   }
 
   button {
     margin-right: 10px;
     width: 100px;
     text-align: center;
+  }
+
+  :checked {
+    font-size: 5px;
   }
 `;

@@ -44,14 +44,31 @@ export const App = () => {
     setTasks(prevState => prevState.filter(task => task.id !== taskId));
   };
 
+  const changeStatus = taskId => {
+    setTasks(prevState =>
+      prevState.map(task => {
+        if (task.id === taskId) {
+          return { ...task, status: !task.status };
+        }
+        return task;
+      })
+    );
+  };
+
   return (
     <Box display="block">
       <Section title="Input title and description">
         <AddTaskForm onSubmit={addTask} />
       </Section>
-      <Section title="To Do List">
-        <TaskList data={tasks} onDeleteTask={deleteTask} />
-      </Section>
+      {tasks.length > 0 && (
+        <Section title="To Do List">
+          <TaskList
+            data={tasks}
+            onDeleteTask={deleteTask}
+            onChange={changeStatus}
+          />
+        </Section>
+      )}
     </Box>
   );
 };
