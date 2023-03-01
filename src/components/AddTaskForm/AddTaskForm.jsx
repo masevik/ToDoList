@@ -1,7 +1,15 @@
 // import PropTypes from 'prop-types';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
+import {
+  Label,
+  StyledForm,
+  FieldWrapper,
+  StyledField,
+  Button,
+  Error,
+} from './AddTaskForm.styled';
 
 const initialValues = { title: '', description: '' };
 
@@ -32,23 +40,30 @@ export const AddTaskForm = ({ onSubmit }) => {
       onSubmit={HandleSubmit}
       validationSchema={schema}
     >
-      <Form>
-        <label htmlFor={titleInputId}>Title</label>
-        <input
-          type="text"
-          name="title"
-          id={titleInputId}
-          placeholder="Enter title"
-        />
-        <label htmlFor={descrInputId}>Description</label>
-        <input
-          type="text"
-          name="description"
-          id={descrInputId}
-          placeholder="Enter description"
-        />
-        <button type="submit">Create</button>
-      </Form>
+      <StyledForm>
+        <FieldWrapper>
+          <Label htmlFor={titleInputId}>Title</Label>
+          <StyledField
+            type="text"
+            name="title"
+            id={titleInputId}
+            placeholder="Enter title"
+          />
+          <Error component="span" name="title" />
+        </FieldWrapper>
+        <FieldWrapper>
+          <Label htmlFor={descrInputId}>Description</Label>
+          <StyledField
+            type="text"
+            name="description"
+            id={descrInputId}
+            placeholder="Enter description"
+          />
+          <Error component="span" name="description" />
+        </FieldWrapper>
+
+        <Button type="submit">Create</Button>
+      </StyledForm>
     </Formik>
   );
 };
