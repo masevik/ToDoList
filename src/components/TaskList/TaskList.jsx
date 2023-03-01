@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Box } from 'components/Box';
 import { TaskListItem } from '../TaskListItem';
 import { ListHeader } from './TaskList.styled';
@@ -24,4 +25,10 @@ export const TaskList = ({ data, onDeleteTask, onChange }) => {
       </ul>
     </Box>
   );
+};
+
+TaskList.propTypes = {
+  data: PropTypes.array,
+  onDeleteTask: PropTypes.elementType,
+  onChange: PropTypes.elementType,
 };

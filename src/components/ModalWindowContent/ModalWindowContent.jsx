@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Box } from 'components/Box';
 import {
   Text,
@@ -43,4 +44,10 @@ export const ModalWindowContent = ({
       </Button>
     </Box>
   );
+};
+
+ModalWindowContent.propTypes = {
+  data: PropTypes.object,
+  onToggleModal: PropTypes.elementType,
+  onChange: PropTypes.elementType,
 };

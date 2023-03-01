@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import {
   Label,
@@ -100,4 +100,8 @@ export const AddTaskForm = ({ onSubmit }) => {
       <Button type="submit">Create</Button>
     </StyledForm>
   );
+};
+
+AddTaskForm.propTypes = {
+  onSubmit: PropTypes.elementType,
 };

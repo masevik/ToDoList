@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Modal } from '../Modal';
 import { ModalWindowContent } from '../ModalWindowContent';
@@ -43,4 +44,10 @@ export const TaskListItem = ({ task, onDeleteTask, onChange }) => {
       )}
     </Item>
   );
+};
+
+TaskListItem.propTypes = {
+  task: PropTypes.object,
+  onDeleteTask: PropTypes.elementType,
+  onChange: PropTypes.elementType,
 };
